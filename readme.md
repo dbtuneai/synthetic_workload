@@ -18,7 +18,7 @@ Run the command: <br>
 
 
 ### Step 4: Run the setup.sh script from the synthetic_workload folder<br>
-`cd synthetic_workload & source setup.sh`<br>
+`cd synthetic_workload && source setup.sh`<br>
 This script automates the following steps: 
 - Mounts the specified disk to a directory.
 - Installs relevant packages for the benchmark.
