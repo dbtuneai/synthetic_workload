@@ -1,7 +1,7 @@
 # Setting up an EC2 instance with BenchBase
 
 ### Step 1: Create a cloud instance<br>
-We recommend creating an m5d.xlarge instance on AWS EC2 or a Standard_D4s_v3 instance with an added SSD on Microsoft Azure, or a corresponding instance with a different cloud provider. Use ubuntu 20.04, since this is the operating system our setup script is written for.<br>
+We recommend creating an m5d.xlarge instance on AWS EC2 or a Standard_D4s_v3 instance with an added SSD on Microsoft Azure, or a corresponding instance with a different cloud provider. Use ubuntu 20.04 or Debian, since these are the operating systems we have setup scripts for.<br>
 
 ### Step 2: Clone our synthetic workload repo on your cloud instance<br>
 `git clone https://github.com/dbtuneai/synthetic_workload.git`<br>
@@ -17,8 +17,9 @@ Run the command: <br>
 `export VAR={name_of_disk}`<br>
 
 
-### Step 4: Run the setup.sh script from the synthetic_workload folder<br>
-`cd synthetic_workload && source setup.sh`<br>
+### Step 4: Run the setup script for ubuntu or debian from the synthetic_workload folder<br>
+`cd synthetic_workload`<br>
+`source setup_{os}.sh`<br>
 This script automates the following steps: 
 - Mounts the specified disk to a directory.
 - Installs relevant packages for the benchmark.
