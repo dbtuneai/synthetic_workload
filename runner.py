@@ -26,7 +26,7 @@ def wait_for_postgres_ready_for_connect():
 
 
 def bench(commands):
-    if bench == "chbenchmark":
+    if benchmark == "chbenchmark":
         os.system("java -jar benchbase.jar -b tpcc, {} -c config/postgres/sample_{}_config.xml {} -s 5".format(benchmark,benchmark,commands))
     else:
         os.system("java -jar benchbase.jar -b {} -c config/postgres/sample_{}_config.xml {} -s 5".format(benchmark,benchmark,commands))
