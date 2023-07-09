@@ -19,8 +19,9 @@ sudo apt -y install postgresql-client-14
 
 # Setup Benchbase
 cd
-git clone --depth 1 https://github.com/cmu-db/benchbase.git
+git clone https://github.com/cmu-db/benchbase.git
 cd benchbase
+git checkout 979b53b043f934220f703b149f27a7ee0f992b63
 ./mvnw clean package -P postgres
 cd target && tar xvzf benchbase-postgres.tgz
 mv benchbase-postgres ../..
