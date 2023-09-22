@@ -34,14 +34,11 @@ mv -v synthetic_workload/runner.py benchbase-postgres/
 
 # Copy the data from the old directory to the mounted one.
 sudo -i -u postgres psql -c "CREATE USER admin WITH LOGIN SUPERUSER PASSWORD 'password';"
+sudo -i -u postgres psql -c "CREATE DATABASE benchbase;"
 sudo rsync -av /var/lib/postgresql /mnt/data
 sudo bash -c 'echo "data_directory = '\''/mnt/data/postgresql/14/main'\''" >> /etc/postgresql/14/main/conf.d/initial.conf'
 sudo bash -c 'echo "max_connections = 450" >> /etc/postgresql/14/main/conf.d/initial.conf'
 sudo bash -c 'echo "max_pred_locks_per_transaction = 500" >> /etc/postgresql/14/main/conf.d/initial.conf'   # Necessary for the Twitter benchmark to run at all
+sudo chmod -R 750 /mnt/data/postgresql
+sudo chown -R postgres:postgres /mnt/data/postgresql
 sudo service postgresql restart
-
-#Setup postgres:
-sudo chmod -R ugo+rw /mnt/data/
-sudo chmod -R 0750 /mnt/data/postgresql/
-
-sudo -u postgres psql -c "CREATE DATABASE benchbase;"
