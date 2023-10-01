@@ -9,6 +9,7 @@ sudo apt -y upgrade
 sudo apt-get -y install python3-pip python-dev openjdk-17-jre-headless
 sudo rm /usr/bin/python
 sudo ln -s /usr/bin/python3.8 /usr/bin/python
+sudo pip3 install psutil
 
 #Install PostgreSQL:
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -

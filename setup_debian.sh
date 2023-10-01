@@ -3,11 +3,12 @@ sudo mkdir /mnt/data
 sudo mkfs -t ext4 /dev/$VAR || { echo 'Unable to mount disk' ; exit 1; }
 sudo mount -t ext4 /dev/$VAR /mnt/data || { echo 'Unable to mount disk' ; exit 1; }
 
-#Install ubuntu packages
+#Install debian packages
 sudo apt update
 sudo apt -y upgrade
 sudo apt-get -y install python3-pip python-dev openjdk-17-jre-headless rsync
 sudo apt-get -y install python-is-python3
+sudo pip3 install psutil
 
 #Install PostgreSQL:
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
