@@ -1,6 +1,8 @@
 import os
 import time
 import argparse
+import subprocess
+import sys
 
 LOG_PATH = "/var/log/postgresql/postgresql-14-main.log"
 RESTORE_DATA_DIR = "/mnt/data/rsync"
@@ -27,12 +29,17 @@ def wait_for_postgres_ready_for_connect():
 
 def bench(commands):
     if benchmark == "chbenchmark":
-        os.system("java -jar benchbase.jar -b tpcc, {} -c config/postgres/sample_{}_config.xml {} -s 5".format(benchmark,benchmark,commands))
+        benchmark_command = ["java", "-jar", "benchbase.jar", "-b", "tpcc", benchmark, "-c", f"config/postgres/sample_{benchmark}_config.xml", commands, "-s", "5"]
+        subprocess.run(benchmark_command)
     else:
-        os.system("java -jar benchbase.jar -b {} -c config/postgres/sample_{}_config.xml {} -s 5".format(benchmark,benchmark,commands))
+        benchmark_command = ["java", "-jar", "benchbase.jar", "-b", benchmark, "-c", f"config/postgres/sample_{benchmark}_config.xml", commands, "-s", "5"]
+        subprocess.run(benchmark_command)
 
 
 if __name__ == "__main__":
-    while True:
-        wait_for_postgres_ready_for_connect()
-        bench("--execute=true")
+    try:
+        while True:
+            wait_for_postgres_ready_for_connect()
+            bench("--execute=true")
+    except KeyboardInterrupt:
+        sys.exit(0)
