@@ -32,6 +32,7 @@ sudo -i -u postgres psql -c "CREATE DATABASE benchbase;"
 sudo bash -c 'echo "data_directory = '\''/mnt/data/postgresql/14/main'\''" >> /etc/postgresql/14/main/conf.d/initial.conf'
 sudo bash -c 'echo "max_connections = 450" >> /etc/postgresql/14/main/conf.d/initial.conf'
 sudo bash -c 'echo "max_pred_locks_per_transaction = 500" >> /etc/postgresql/14/main/conf.d/initial.conf'   # Necessary for the Twitter benchmark to run at all
+sudo bash -c 'echo "shared_preload_libraries = '\''pg_stat_statements'\''" >> /etc/postgresql/14/main/conf.d/initial.conf' #Necessary for tuning for query_runtime
 
 # Mount data directory (the directory will be mounted until you stop your cloud instance, in which case you need to rerun all the commands below)
 sudo mkdir /mnt/data
