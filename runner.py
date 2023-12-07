@@ -29,7 +29,7 @@ def wait_for_postgres_ready_for_connect():
 
 def bench(commands):
     if benchmark == "chbenchmark":
-        benchmark_command = ["java", "-jar", "benchbase.jar", "-b", "tpcc", benchmark, "-c", f"config/postgres/sample_{benchmark}_config.xml", commands, "-s", "5"]
+        benchmark_command = ["java", "-jar", "benchbase.jar", "-b", f"tpcc,{benchmark}", "-c", f"config/postgres/sample_{benchmark}_config.xml", commands, "-s", "5"]
         subprocess.run(benchmark_command)
     else:
         benchmark_command = ["java", "-jar", "benchbase.jar", "-b", benchmark, "-c", f"config/postgres/sample_{benchmark}_config.xml", commands, "-s", "5"]
