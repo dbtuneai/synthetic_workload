@@ -38,7 +38,7 @@ def bench(commands):
 if __name__ == "__main__":
     try:
         wait_for_postgres_ready_for_connect()
-        bench("--create=true)
+        bench("--create=true")
         bench("--load=true")
     except KeyboardInterrupt:
         sys.exit(0)
