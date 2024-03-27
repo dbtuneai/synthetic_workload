@@ -18,7 +18,7 @@ cd
 git clone https://github.com/cmu-db/benchbase.git
 cd benchbase
 git checkout 979b53b043f934220f703b149f27a7ee0f992b63
-./mvnw clean package -P postgres
+./mvnw clean package -P postgres -Dmaven.test.skip=true
 cd target && tar xvzf benchbase-postgres.tgz
 mv benchbase-postgres ../..
 cd ../..
