@@ -1,3 +1,12 @@
+if [[ -z "${PGVERSION}" ]]; then
+  export PGVERSION="14"
+fi
+
+if [[ -z "${VAR}" ]]; then
+  echo "Please set the disk name in the VAR environment variable"
+  exit 1
+fi
+
 # Install ubuntu packages
 sudo apt update
 sudo apt -y upgrade
@@ -9,8 +18,8 @@ sudo pip3 install psutil psycopg2
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" |sudo tee  /etc/apt/sources.list.d/pgdg.list
 sudo apt update
-sudo apt -y install postgresql-14
-sudo apt -y install postgresql-client-14
+sudo apt -y install postgresql-$PGVERSION
+sudo apt -y install postgresql-client-$PGVERSION
 
 # Setup Benchbase
 cd
@@ -29,10 +38,10 @@ mv -v synthetic_workload/runner.py benchbase-postgres/
 # Copy the data from the old directory to the mounted one
 sudo -i -u postgres psql -c "CREATE USER admin WITH LOGIN SUPERUSER PASSWORD 'password';"
 sudo -i -u postgres psql -c "CREATE DATABASE benchbase;"
-sudo bash -c 'echo "data_directory = '\''/mnt/data/postgresql/14/main'\''" >> /etc/postgresql/14/main/conf.d/initial.conf'
-sudo bash -c 'echo "max_connections = 450" >> /etc/postgresql/14/main/conf.d/initial.conf'
-sudo bash -c 'echo "max_pred_locks_per_transaction = 500" >> /etc/postgresql/14/main/conf.d/initial.conf'   # Necessary for the Twitter benchmark to run at all
-sudo bash -c 'echo "shared_preload_libraries = '\''pg_stat_statements'\''" >> /etc/postgresql/14/main/conf.d/initial.conf' #Necessary for tuning for query_runtime
+sudo -E bash -c 'echo "data_directory = '\''/mnt/data/postgresql/$PGVERSION/main'\''" >> /etc/postgresql/$PGVERSION/main/conf.d/initial.conf'
+sudo -E bash -c 'echo "max_connections = 450" >> /etc/postgresql/$PGVERSION/main/conf.d/initial.conf'
+sudo -E bash -c 'echo "max_pred_locks_per_transaction = 500" >> /etc/postgresql/$PGVERSION/main/conf.d/initial.conf'   # Necessary for the Twitter benchmark to run at all
+sudo -E bash -c 'echo "shared_preload_libraries = '\''pg_stat_statements'\''" >> /etc/postgresql/$PGVERSION/main/conf.d/initial.conf' #Necessary for tuning for query_runtime
 
 # Mount data directory (the directory will be mounted until you stop your cloud instance, in which case you need to rerun all the commands below)
 sudo mkdir /mnt/data
