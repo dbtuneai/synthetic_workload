@@ -1,15 +1,13 @@
+"""
+This is the data loader. It wraps the benchbase data loader with some convenience features.
+"""
+
 import os
 import time
 import argparse
 import subprocess
 import sys
 
-if not os.environ.get("PG_VERSION"):
-    pg_version = "14"
-else:
-    pg_version = os.environ.get("PG_VERSION")
-
-LOG_PATH = f"/var/log/postgresql/postgresql-{pg_version}-main.log"
 parser = argparse.ArgumentParser()
 parser.add_argument(
     "--benchmark",

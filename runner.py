@@ -1,18 +1,15 @@
+"""
+This file is a wrapper for the benchbase benchmark runner.
+It runs the benchmarks with some custom java configurations
+and restarts the benchmark if it finishes.
+"""
+
 import os
 import time
 import argparse
 import subprocess
 import sys
 
-if not os.environ.get("PG_VERSION"):
-    pg_version = "14"
-else:
-    pg_version = os.environ.get("PG_VERSION")
-
-
-LOG_PATH = f"/var/log/postgresql/postgresql-{pg_version}-main.log"
-RESTORE_DATA_DIR = "/mnt/data/rsync"
-DATA_DIR = "/mnt/data/postgresql"
 parser = argparse.ArgumentParser()
 parser.add_argument(
     "--benchmark",
@@ -38,7 +35,6 @@ def wait_for_postgres_ready_for_connect():
 
 
 def bench(commands):
-
     java_args = [
         "-Xmx5g",  # Maximum heap size
         "-XX:+UseG1GC",  # Use the Garbage-First (G1) Garbage Collector
@@ -62,6 +58,7 @@ def bench(commands):
         "-s",
         "5"
     ]
+
     subprocess.run(benchmark_command)
 
 
