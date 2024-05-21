@@ -14,7 +14,7 @@
     <scalefactor>10000</scalefactor>             <!-- 10000 is around 80G-->
 
     <!-- The workload -->
-    <terminals>50</terminals>
+    <terminals>20</terminals>
     <works>
         <work>
             <time>86400</time>
