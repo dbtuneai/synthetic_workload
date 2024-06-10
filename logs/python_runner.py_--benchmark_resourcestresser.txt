@@ -1,0 +1,49 @@
+Waiting for connect...[INFO ] 2023-10-01 18:07:00,931 [main]  com.oltpbenchmark.DBWorkload main - ======================================================================
+
+Benchmark:              RESOURCESTRESSER {com.oltpbenchmark.benchmarks.resourcestresser.ResourceStresserBenchmark}
+Configuration:          config/postgres/sample_resourcestresser_config.xml
+Type:                   POSTGRES
+Driver:                 org.postgresql.Driver
+URL:                    jdbc:postgresql://localhost:5432/benchbase?sslmode=disable&ApplicationName=resourcestresser&reWriteBatchedInserts=true
+Isolation:              TRANSACTION_REPEATABLE_READ
+Batch Size:             128
+Scale Factor:           80000.0
+Terminals:              50
+New Connection Per Txn: false
+
+[INFO ] 2023-10-01 18:07:00,932 [main]  com.oltpbenchmark.DBWorkload main - ======================================================================
+[INFO ] 2023-10-01 18:07:01,341 [main]  com.oltpbenchmark.DBWorkload runWorkload - Creating 50 virtual terminals...
+[WARN ] 2023-10-01 18:07:01,341 [main]  com.oltpbenchmark.benchmarks.resourcestresser.ResourceStresserBenchmark makeWorkersImpl - numkeys=8000000, keyRange=160000
+[INFO ] 2023-10-01 18:07:02,194 [main]  com.oltpbenchmark.DBWorkload runWorkload - Launching the RESOURCESTRESSER Benchmark with 1 Phase...
+[INFO ] 2023-10-01 18:07:02,269 [main]  com.oltpbenchmark.ThreadBench runRateLimitedMultiPhase - [0;1mPHASE START[0;0m :: [Workload=RESOURCESTRESSER] [Serial=false] [Time=86400] [WarmupTime=0] [Rate=unlimited] [Arrival=REGULAR] [Ratios=[0.0, 0.0, 50.0, 50.0, 0.0, 0.0]] [ActiveWorkers=50]
+[INFO ] 2023-10-01 18:07:03,267 [main]  com.oltpbenchmark.ThreadBench runRateLimitedMultiPhase - [0;1mMEASURE[0;0m :: Warmup complete, starting measurements.
+[ERROR] 2023-10-01 18:10:56,302 [ResourceStresserWorker<034>]  com.oltpbenchmark.ThreadBench uncaughtException - Unexpected SQLException in 'ResourceStresserWorker<034>' when executing 'com.oltpbenchmark.benchmarks.resourcestresser.procedures.IO2/04' on [POSTGRES]
+java.lang.RuntimeException: Unexpected SQLException in 'ResourceStresserWorker<034>' when executing 'com.oltpbenchmark.benchmarks.resourcestresser.procedures.IO2/04' on [POSTGRES]
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:481)
+	at com.oltpbenchmark.api.Worker.run(Worker.java:282)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: org.postgresql.util.PSQLException: This connection has been closed.
+	at org.postgresql.jdbc.PgConnection.checkClosed(PgConnection.java:883)
+	at org.postgresql.jdbc.PgConnection.rollback(PgConnection.java:890)
+	at com.oltpbenchmark.api.Worker.doWork(Worker.java:440)
+	... 2 more
+.
+Waiting for connect....................[INFO ] 2023-10-01 18:11:14,693 [main]  com.oltpbenchmark.DBWorkload main - ======================================================================
+
+Benchmark:              RESOURCESTRESSER {com.oltpbenchmark.benchmarks.resourcestresser.ResourceStresserBenchmark}
+Configuration:          config/postgres/sample_resourcestresser_config.xml
+Type:                   POSTGRES
+Driver:                 org.postgresql.Driver
+URL:                    jdbc:postgresql://localhost:5432/benchbase?sslmode=disable&ApplicationName=resourcestresser&reWriteBatchedInserts=true
+Isolation:              TRANSACTION_REPEATABLE_READ
+Batch Size:             128
+Scale Factor:           80000.0
+Terminals:              50
+New Connection Per Txn: false
+
+[INFO ] 2023-10-01 18:11:14,695 [main]  com.oltpbenchmark.DBWorkload main - ======================================================================
+[INFO ] 2023-10-01 18:11:15,002 [main]  com.oltpbenchmark.DBWorkload runWorkload - Creating 50 virtual terminals...
+[WARN ] 2023-10-01 18:11:15,002 [main]  com.oltpbenchmark.benchmarks.resourcestresser.ResourceStresserBenchmark makeWorkersImpl - numkeys=8000000, keyRange=160000
+[INFO ] 2023-10-01 18:11:15,673 [main]  com.oltpbenchmark.DBWorkload runWorkload - Launching the RESOURCESTRESSER Benchmark with 1 Phase...
+[INFO ] 2023-10-01 18:11:15,710 [main]  com.oltpbenchmark.ThreadBench runRateLimitedMultiPhase - [0;1mPHASE START[0;0m :: [Workload=RESOURCESTRESSER] [Serial=false] [Time=86400] [WarmupTime=0] [Rate=unlimited] [Arrival=REGULAR] [Ratios=[0.0, 0.0, 50.0, 50.0, 0.0, 0.0]] [ActiveWorkers=50]
+[INFO ] 2023-10-01 18:11:16,698 [main]  com.oltpbenchmark.ThreadBench runRateLimitedMultiPhase - [0;1mMEASURE[0;0m :: Warmup complete, starting measurements.

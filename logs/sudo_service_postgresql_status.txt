@@ -1,0 +1,8 @@
+● postgresql.service - PostgreSQL RDBMS
+     Loaded: loaded (/lib/systemd/system/postgresql.service; enabled; vendor preset: enabled)
+     Active: active (exited) since Sun 2023-10-01 14:22:44 UTC; 2min 36s ago
+    Process: 41364 ExecStart=/bin/true (code=exited, status=0/SUCCESS)
+   Main PID: 41364 (code=exited, status=0/SUCCESS)
+
+Oct 01 14:22:44 ip-172-31-18-95 systemd[1]: Starting PostgreSQL RDBMS...
+Oct 01 14:22:44 ip-172-31-18-95 systemd[1]: Finished PostgreSQL RDBMS.
