@@ -3,7 +3,7 @@ name: Trigger Deploy on Change
 on:
   push:
     branches:
-      - mohsin-test
+      - master
 
 jobs:
   trigger-deploy:
