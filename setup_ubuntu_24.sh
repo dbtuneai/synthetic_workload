@@ -25,6 +25,9 @@ sudo -E apt -y install postgresql-client-$PGVERSION
 cd
 git clone https://github.com/cmu-db/benchbase.git
 cd benchbase
+sed -i 's/<java.version>23<\/java.version>/<java.version>21<\/java.version>/g' pom.xml
+sed -i 's/<maven.compiler.source>23<\/maven.compiler.source>/<maven.compiler.source>21<\/maven.compiler.source>/g' pom.xml
+sed -i 's/<maven.compiler.target>23<\/maven.compiler.target>/<maven.compiler.target>21<\/maven.compiler.target>/g' pom.xml
 ./mvnw clean package -P postgres -Dmaven.test.skip=true
 cd target && tar xvzf benchbase-postgres.tgz
 mv benchbase-postgres ../..
