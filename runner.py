@@ -36,7 +36,7 @@ def wait_for_postgres_ready_for_connect():
 
 def bench(commands):
     java_args = [
-        "-Xmx5g",  # Maximum heap size
+        "-Xmx10g",  # Maximum heap size
         "-XX:+UseG1GC",  # Use the Garbage-First (G1) Garbage Collector
         "-XX:G1HeapRegionSize=4M",  # Set G1 heap region size
         "-XX:MaxGCPauseMillis=200",  # Set maximum GC pause time
