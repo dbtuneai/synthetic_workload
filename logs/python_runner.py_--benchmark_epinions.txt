@@ -1,0 +1,25 @@
+Waiting for connect....
+Starting benchmark...
+[INFO ] 2025-02-27 12:37:23,391 [main]  com.oltpbenchmark.DBWorkload main - ======================================================================
+
+Benchmark:                       EPINIONS {com.oltpbenchmark.benchmarks.epinions.EpinionsBenchmark}
+Configuration:                   config/postgres/sample_epinions_config.xml
+Type:                            POSTGRES
+Driver:                          org.postgresql.Driver
+URL:                             jdbc:postgresql://localhost:5432/benchbase?sslmode=disable&ApplicationName=epinions&reWriteBatchedInserts=true
+Isolation:                       TRANSACTION_REPEATABLE_READ
+Batch Size:                      128
+DDL Path:                        null
+Loader Threads:                  4
+Session Setup File:              null
+Scale Factor:                    10000.0
+Terminals:                       20
+New Connection Per Txn:          false
+Reconnect on Connection Failure: false
+
+[INFO ] 2025-02-27 12:37:23,392 [main]  com.oltpbenchmark.DBWorkload main - ======================================================================
+[INFO ] 2025-02-27 12:37:23,646 [main]  com.oltpbenchmark.DBWorkload runWorkload - Creating 20 virtual terminals...
+[INFO ] 2025-02-27 12:37:42,624 [main]  com.oltpbenchmark.DBWorkload runWorkload - Launching the EPINIONS Benchmark with 1 Phase...
+[INFO ] 2025-02-27 12:37:42,630 [main]  com.oltpbenchmark.ThreadBench runRateLimitedMultiPhase - PHASE START :: [Workload=EPINIONS] [Serial=false] [Time=86400] [WarmupTime=0] [Rate=unlimited] [Arrival=REGULAR] [Ratios=[10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 20.0]] [ActiveWorkers=20]
+[INFO ] 2025-02-27 12:37:43,630 [main]  com.oltpbenchmark.ThreadBench runRateLimitedMultiPhase - MEASURE :: Warmup complete, starting measurements.
+
