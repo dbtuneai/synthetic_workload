@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<parameters>
+
+    <!-- Connection details -->
+    <type>POSTGRES</type>
+    <driver>org.postgresql.Driver</driver>
+    <url>connection_string</url>
+    <username>dbuser</username>
+    <password>dbpassword</password>
+    <reconnectOnConnectionFailure>true</reconnectOnConnectionFailure>
+    <isolation>TRANSACTION_READ_COMMITTED</isolation>
+    <batchsize>128</batchsize>
+
+    <!-- Scalefactor in SEATS scales by *1000 the number of customers-->
+    <scalefactor>200</scalefactor>
+
+    <!-- The workload -->
+    <terminals>50</terminals>
+    <works>
+        <work>
+            <time>86400</time>
+            <rate>unlimited</rate>
+            <weights>10, 10, 35, 20, 10, 15</weights>
+        </work>
+    </works>
+
+    <!-- SEATS Procedures declaration -->
+    <transactiontypes>
+        <transactiontype>
+            <name>DeleteReservation</name>
+        </transactiontype>
+        <transactiontype>
+            <name>FindFlights</name>
+        </transactiontype>
+        <transactiontype>
+            <name>FindOpenSeats</name>
+        </transactiontype>
+        <transactiontype>
+            <name>NewReservation</name>
+        </transactiontype>
+        <transactiontype>
+            <name>UpdateCustomer</name>
+        </transactiontype>
+        <transactiontype>
+            <name>UpdateReservation</name>
+        </transactiontype>
+    </transactiontypes>
+</parameters>
