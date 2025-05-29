@@ -4,9 +4,9 @@
     <!-- Connection details -->
     <type>POSTGRES</type>
     <driver>org.postgresql.Driver</driver>
-    <url>connection_string</url>
-    <username>dbuser</username>
-    <password>dbpassword</password>
+    <url>jdbc:postgresql://localhost:5432/benchbase?sslmode=disable&amp;ApplicationName=resourcestresser&amp;reWriteBatchedInserts=true</url>
+    <username>admin</username>
+    <password>password</password>
     <reconnectOnConnectionFailure>true</reconnectOnConnectionFailure>
     <isolation>TRANSACTION_READ_COMMITTED</isolation>
     <batchsize>128</batchsize>
