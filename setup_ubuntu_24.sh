@@ -52,4 +52,7 @@ sudo mount -t ext4 /dev/$VAR /mnt/data || { echo 'Unable to mount disk' ; exit 1
 sudo rsync -av /var/lib/postgresql /mnt/data
 sudo chmod -R 750 /mnt/data/postgresql
 sudo chown -R postgres:postgres /mnt/data/postgresql
+sudo chmod o+rx /mnt/data
+sudo chmod o+rx /mnt/data/postgresql
+sudo usermod -a -G postgres ubuntu
 sudo service postgresql restart
