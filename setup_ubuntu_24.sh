@@ -1,5 +1,5 @@
 if [[ -z "${PGVERSION}" ]]; then
-  export PGVERSION="16"
+  export PGVERSION="18"
 fi
 
 if [[ -z "${VAR}" ]]; then
