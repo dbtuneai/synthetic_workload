@@ -1,0 +1,24 @@
+2026-02-07 15:30:26.735 UTC [18026] LOG:  starting PostgreSQL 18.1 (Ubuntu 18.1-1.pgdg24.04+1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.2.0-23ubuntu4) 13.2.0, 64-bit
+2026-02-07 15:30:26.735 UTC [18026] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2026-02-07 15:30:26.738 UTC [18026] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2026-02-07 15:30:26.744 UTC [18029] LOG:  database system was shut down at 2026-02-07 15:30:24 UTC
+2026-02-07 15:30:26.750 UTC [18026] LOG:  database system is ready to accept connections
+2026-02-07 15:31:27.037 UTC [18026] LOG:  received fast shutdown request
+2026-02-07 15:31:27.041 UTC [18026] LOG:  aborting any active transactions
+2026-02-07 15:31:27.044 UTC [18026] LOG:  background worker "logical replication launcher" (PID 18032) exited with exit code 1
+2026-02-07 15:31:27.045 UTC [18027] LOG:  shutting down
+2026-02-07 15:31:27.047 UTC [18027] LOG:  checkpoint starting: shutdown immediate
+2026-02-07 15:31:27.117 UTC [18027] LOG:  checkpoint complete: wrote 928 buffers (5.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.057 s, sync=0.006 s, total=0.073 s; sync files=305, longest=0.002 s, average=0.001 s; distance=4271 kB, estimate=4271 kB; lsn=0/191B400, redo lsn=0/191B400
+2026-02-07 15:31:27.123 UTC [18026] LOG:  database system is shut down
+2026-02-07 15:31:27.256 UTC [18515] LOG:  starting PostgreSQL 16.3 (Ubuntu 16.3-1.pgdg24.04+1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.2.0-23ubuntu4) 13.2.0, 64-bit
+2026-02-07 15:31:27.256 UTC [18515] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2026-02-07 15:31:27.257 UTC [18515] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2026-02-07 15:31:27.259 UTC [18518] LOG:  database system was interrupted; last known up at 2026-02-07 15:30:26 UTC
+2026-02-07 15:31:27.319 UTC [18518] LOG:  database system was not properly shut down; automatic recovery in progress
+2026-02-07 15:31:27.320 UTC [18518] LOG:  redo starts at 0/14EF610
+2026-02-07 15:31:27.330 UTC [18518] LOG:  invalid record length at 0/191B400: expected at least 24, got 0
+2026-02-07 15:31:27.330 UTC [18518] LOG:  redo done at 0/191B3C8 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.01 s
+2026-02-07 15:31:27.332 UTC [18516] LOG:  checkpoint starting: end-of-recovery immediate wait
+2026-02-07 15:31:27.342 UTC [18516] LOG:  checkpoint complete: wrote 928 buffers (5.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.009 s, sync=0.001 s, total=0.010 s; sync files=305, longest=0.001 s, average=0.001 s; distance=4271 kB, estimate=4271 kB; lsn=0/191B400, redo lsn=0/191B400
+2026-02-07 15:31:27.346 UTC [18515] LOG:  database system is ready to accept connections
+
