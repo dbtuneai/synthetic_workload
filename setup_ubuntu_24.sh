@@ -41,7 +41,7 @@ mv -v synthetic_workload/runner.py benchbase-postgres/
 sudo -i -u postgres psql -c "CREATE USER admin WITH LOGIN SUPERUSER PASSWORD 'password';"
 sudo -i -u postgres psql -c "CREATE DATABASE benchbase;"
 sudo -E bash -c 'echo "data_directory = '\''/mnt/data/postgresql/$PGVERSION/main'\''" >> "/etc/postgresql/${PGVERSION}/main/conf.d/initial.conf"'
-sudo -E bash -c 'echo "max_connections = 450" >> "/etc/postgresql/$PGVERSION/main/conf.d/initial.conf"'
+sudo -E bash -c 'echo "max_connections = 300" >> "/etc/postgresql/$PGVERSION/main/conf.d/initial.conf"'
 sudo -E bash -c 'echo "max_pred_locks_per_transaction = 500" >> "/etc/postgresql/$PGVERSION/main/conf.d/initial.conf"'   # Necessary for the Twitter benchmark to run at all
 sudo -E bash -c 'echo "shared_preload_libraries = '\''pg_stat_statements'\''" >> "/etc/postgresql/$PGVERSION/main/conf.d/initial.conf"' #Necessary for tuning for query_runtime
 
